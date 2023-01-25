@@ -1,5 +1,5 @@
 import express from 'express';
-import { myProperties } from '../../controllers/auth/propertyController.js';
+import { myProperties, propertiesCreate } from '../../controllers/properties/propertyController.js';
 const router = express.Router();
 
 // Propiedades
@@ -7,5 +7,6 @@ const router = express.Router();
 
 // Mis propiedades
 router.get('/my-properties', myProperties)
+router.get('/properties/new', propertiesCreate)
 
 export default router;

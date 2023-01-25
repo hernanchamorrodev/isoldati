@@ -10,7 +10,7 @@ import db from './config/db.js';
 
 // rutas
 import userRoutes from './routes/auth/userRoutes.js';
-import propertiesRoutes from './routes/auth/propertiesRoutes.js';
+import propertiesRoutes from './routes/properties/propertiesRoutes.js';
 
 // app
 const app = express(); // Create an express app
