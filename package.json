@@ -1,0 +1,51 @@
+{
+  "name": "bienesraices_mvc",
+  "version": "1.0.0",
+  "description": "proyecto de bienes raíces",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "css": "postcss public/css/tailwind.css -o public/css/app.css --watch"
+  },
+  "keywords": [
+    "MVC",
+    "Pug",
+    "Node",
+    "Tailwind",
+    "Express",
+    "MySQL",
+    "Sequelize"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acroooo/bienesraices.git"
+  },
+  "author": "Hernán Chamorro <hernang.work@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/acroooo/bienesraices/issues"
+  },
+  "homepage": "https://github.com/acroooo/bienesraices#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "csurf": "^1.11.0",
+    "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "nodemailer": "^6.8.0",
+    "pug": "^3.0.2",
+    "sequelize": "^6.23.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.12",
+    "dotenv": "^16.0.2",
+    "nodemon": "^2.0.20",
+    "postcss": "^8.4.16",
+    "postcss-cli": "^10.0.0",
+    "tailwindcss": "^3.1.8"
+  }
+}

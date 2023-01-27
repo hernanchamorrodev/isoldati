@@ -1,0 +1,29 @@
+extends ../layouts/index
+
+block content
+    .py-10
+        h1.text-4xl.my-10.font-extrabold.text-center Inmobiliaria
+            span.font-normal.mx-2 Soldati
+        h2.text-center.font-extrabold.text-2xl=title
+
+        if errors
+            div(class="max-w-md mx-auto my-10")
+                each error in errors
+                    p.bg-red-600.text-white.uppercase.text-xs.text-center.p-2.mb-1.font-bold=error.msg
+
+        .mt-8.mx-auto.max-w-md
+            .bg-white.py-8.px-4.shadow
+                form.space-y-5(method="POST" action="/auth/login")
+                    input(type="hidden", name="_csrf" value=csrfToken)
+                    div.mt-5
+                        label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="email") Dirección de email
+                        input#email.w-full.px-3.py-3.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Ej. jhon@doe.com", type="email", name="Email")
+
+                    div.mt-5.mb-5
+                        label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="password") Contraseña
+                        input#password.w-full.px-3.py-3.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="*******", type="password", name="Password")
+                    div.flex.items-center.justify-between.mt-5
+                        a(class="font-semibold text-xs text-gray-600" href="/auth/signup") Crea tu cuenta!
+                        a(class="font-semibold text-xs text-gray-600" href="/auth/recover-password") ¿Olvidaste tu contraseña?
+
+                    input(class="mt-5 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3" type="submit" value="Iniciar sesión")
