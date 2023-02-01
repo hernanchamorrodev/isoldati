@@ -29,10 +29,6 @@ const Property = db.define('properties', {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    price: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
     street: {
         type: DataTypes.STRING(100),
         allowNull: false
