@@ -1,5 +1,3 @@
-import e = require("express");
-
 const categories = [
     {
         name: 'Casa'
