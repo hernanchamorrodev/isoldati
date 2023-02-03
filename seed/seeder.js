@@ -2,6 +2,8 @@ import { exit } from 'node:process'
 
 import categories from './categories.js';
 import Category from '../models/Category.js';
+import prices from './prices.js';
+import Price from '../models/Price.js';
 
 import db from '../config/db.js';
 
@@ -9,7 +11,14 @@ const importar = async() => {
     try {
         await db.authenticate();
         await db.sync();
-        await Category.bulkCreate(categories);
+        
+        await Promise.all(
+            [
+                Category.bulkCreate(categories),
+                Price.bulkCreate(prices)
+            ]
+        )
+
         console.log('Data imported...');
         exit();
     } catch(error){
@@ -18,6 +27,26 @@ const importar = async() => {
     }
 }
 
+const eliminar = async() => {
+    try {
+        await db.authenticate();
+        await db.sync({
+            force: true
+        });
+
+        console.log('Data destroyed...');
+        exit();
+
+    } catch(error){
+        console.error(error);
+        exit(1)
+    }
+}
+
 if(process.argv[2] === '-i'){
     importar();
+}
+
+if(process.argv[2] === '-d'){
+    eliminar();
 }

@@ -10,7 +10,8 @@
     "css": "postcss public/css/tailwind.css -o public/css/app.css --watch",
     "js": "webpack --watch",
     "server": "concurrently \"npm run css\" \"npm run js\" \"npm run dev\"",
-    "db:import": "node ./seed/seeder.js -i"
+    "db:import": "node ./seed/seeder.js -i",
+    "db:delete": "node ./seed/seeder.js -d"
   },
   "keywords": [
     "MVC",
