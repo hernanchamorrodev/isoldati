@@ -6,7 +6,12 @@ import Price from './Price';
 // asociaciones
 
 // Cada propiedad tiene un precio
-Price.hasOne(Property);
+// Price.hasOne(Property);
+Property.belongsTo(Price, {
+    foreignKey: 'priceId'
+});
+
+
 
 export default {
     Property,
