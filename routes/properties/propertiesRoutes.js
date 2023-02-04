@@ -1,5 +1,11 @@
 import express from 'express';
-import { myProperties, propertiesCreate } from '../../controllers/properties/propertyController.js';
+
+import { body } from 'express-validator';
+
+import { myProperties, propertiesCreate, propertiesSave } from '../../controllers/properties/propertyController.js';
+
+
+
 const router = express.Router();
 
 // Propiedades
@@ -7,6 +13,9 @@ const router = express.Router();
 
 // Mis propiedades
 router.get('/my-properties', myProperties)
+
+// Crear propiedades
 router.get('/properties/new', propertiesCreate)
+router.post('/properties/new', propertiesSave)
 
 export default router;

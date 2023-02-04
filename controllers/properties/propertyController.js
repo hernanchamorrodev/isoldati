@@ -28,6 +28,11 @@ const propertiesCreate = async (req, res) => {
         })
 }
 
+// guardar propiedad en la base de datos
+const propertiesSave = (req, res) => {
+    
+}
+
 export {
     myProperties,
     propertiesCreate
