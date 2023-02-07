@@ -26,7 +26,12 @@ router.post('/properties/new',
     body('precio').notEmpty().withMessage('El precio es obligatorio').bail()
         .isNumeric().withMessage('El precio debe ser un numero'),
     body('ubicacion').notEmpty().withMessage('La ubicacion es obligatoria'),
-    
+    body('habitaciones').notEmpty().withMessage('El numero de habitaciones es obligatorio').bail()
+        .isNumeric().withMessage('El numero de habitaciones debe ser un numero'),
+    body('baños').notEmpty().withMessage('El numero de baños es obligatorio').bail()
+        .isNumeric().withMessage('El numero de baños debe ser un numero'),
+    body('estacionamientos').notEmpty().withMessage('El numero de estacionamientos es obligatorio').bail()
+        .isNumeric().withMessage('El numero de estacionamientos debe ser un numero'),
 ,propertiesSave)
 
 export default router;
