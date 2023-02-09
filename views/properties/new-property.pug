@@ -59,8 +59,8 @@ block content
                                     option(value=n)= n
                                     - n++;
                     div(class="md:w-1/3")
-                        label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="baños") Baños
-                        select#baños.w-full.px-3.py-3.border.border-gray-300.rounded-md(name="baños")
+                        label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="toilet") Baños
+                        select#toilet.w-full.px-3.py-3.border.border-gray-300.rounded-md(name="toilet")
                             option(value="") - Número de baños -
                             - var n=1;
                                 while n <= 5
@@ -79,7 +79,7 @@ block content
                     input(type="hidden", name="lng", id="lng")
                     input(type="hidden", name="calle", id="calle")
 
-                input(class="w-full py-3 bg-blue-500 text-white rounded-md my-5", type="submit", value="Guardar propiedad")
+                input(class="w-full py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md my-5", type="submit", value="Guardar propiedad")
 block scripts
     script(src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js")
     script(src="https://unpkg.com/esri-leaflet@3.0.8/dist/esri-leaflet.js")
