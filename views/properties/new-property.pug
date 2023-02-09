@@ -36,14 +36,14 @@ block content
                         select#categoria.w-full.px-3.py-3.border.border-gray-300.rounded-md(name="categoria")
                             option(value="") - Seleccione una categoría -
                             each categoria in categorias
-                                option(value=categoria.id)= categoria.name
+                                option(value=categoria.id selected= data.categoria ? data.categoria == categoria.id ? true : false : null )= categoria.name
 
                     div(class="md:w-1/2")
                         label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="precio") Precio
                         select#precio.w-full.px-3.py-3.border.border-gray-300.rounded-md(name="precio")
                             option(value="") - Seleccione un rango de precio -
                             each precio in precios
-                                option(value=precio.id)= precio.value
+                                option(value=precio.id selected= data.precio ? data.precio == precio.id ? true : false : null)= precio.value
                     
                 
                 div(class="md:flex md:gap-4 space-y-5 md:space-y-0")
