@@ -25,6 +25,7 @@ const propertiesCreate = async (req, res) => {
     res.render('properties/new-property', {
         title: 'Nueva propiedad',
         navigation: true,
+        csrfToken: req.csrfToken(),
         categorias,
         precios
         })
@@ -48,6 +49,7 @@ const propertiesSave = async (req, res) => {
             navigation: true,
             categorias,
             precios,
+            csrfToken: req.csrfToken(),
             errors: errors.array()
         })
     }
