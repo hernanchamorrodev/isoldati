@@ -6,8 +6,8 @@
 
     function(){
         // Buenos Aires, Argentina
-        const latitud = -34.6036844;
-        const longitud = -58.3815591;
+        const latitud = documents.querySelector('#lat').value || -34.6036844;
+        const longitud = documents.querySelector('#lng').value || -58.3815591;
         const mapa = L.map('map').setView([latitud, longitud], 12);
 
         // Provider y geocoder
@@ -40,7 +40,6 @@
                 marker.bindPopup(resultado.address.LongLabel);
                 marker.openPopup();
 
-                document.querySelector('#direccion').value = resultado?.address?.Address ?? '';
                 document.querySelector('.calle').value = resultado?.address?.Address ?? '';
                 document.querySelector('.lat').value = resultado?.latlng?.lat ?? '';
                 document.querySelector('.lng').value = resultado?.latlng?.lng ?? '';
