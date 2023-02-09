@@ -27,7 +27,8 @@ const propertiesCreate = async (req, res) => {
         navigation: true,
         csrfToken: req.csrfToken(),
         categorias,
-        precios
+        precios,
+        data: {}
         })
 }
 
@@ -50,7 +51,8 @@ const propertiesSave = async (req, res) => {
             categorias,
             precios,
             csrfToken: req.csrfToken(),
-            errors: errors.array()
+            errors: errors.array(),
+            data: req.body
         })
     }
 }
