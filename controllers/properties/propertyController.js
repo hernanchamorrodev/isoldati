@@ -1,7 +1,6 @@
 import { validationResult } from 'express-validator'
 
-import Price from '../../models/Price.js'
-import Category from '../../models/Category.js'
+import { Category, Price, Property } from '../../models/index.js'
 
 
 // panel de administracion
@@ -54,6 +53,35 @@ const propertiesSave = async (req, res) => {
             errors: errors.array(),
             data: req.body
         })
+    }
+
+    // almacenar en la base de datos
+    const { category, price, title, description, address, city, province, country, rooms, bathrooms, parking, area, image } = req.body
+
+    try {
+        await Property.create({
+            categoryId: category,
+            priceId : price,
+            title,
+            description,
+            address,
+            city,
+            province,
+            country,
+            rooms,
+            bathrooms,
+            parking,
+            area,
+            image,
+            userId: req.user.id
+        })
+
+        req.flash('success', 'Propiedad creada correctamente')
+        res.redirect('/administracion')
+    } catch (error) {
+        console.log(error)
+        req.flash('error', 'Hubo un error')
+        res.redirect('/my-properties')
     }
 }
 

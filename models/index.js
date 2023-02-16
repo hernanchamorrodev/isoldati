@@ -1,7 +1,7 @@
-import Property from './Property';
-import User from './User';
-import Category from './Category';
-import Price from './Price';
+import Property from './Property.js';
+import User from './User.js';
+import Category from './Category.js';
+import Price from './Price.js';
 
 // asociaciones
 
@@ -31,11 +31,7 @@ Category.hasMany(Property, {
     foreignKey: 'categoryId'
 })
 
-
-
-
-
-export default {
+export {
     Property,
     User,
     Category,

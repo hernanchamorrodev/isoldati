@@ -12,6 +12,9 @@ import db from './config/db.js';
 import userRoutes from './routes/auth/userRoutes.js';
 import propertiesRoutes from './routes/properties/propertiesRoutes.js';
 
+// flash
+import flash from 'connect-flash';
+
 // app
 const app = express(); // Create an express app
 const port = process.env.PORT || 3000;
@@ -30,6 +33,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // allow cookie parser
 app.use(cookieParser())
+
+// flash
+app.use(flash())
 
 // allow csrf
 app.use(csrf({cookie: true}))

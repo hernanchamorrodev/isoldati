@@ -4,11 +4,6 @@ import bcrypt from 'bcrypt';
 
 // defino nuevo modelo
 const User = db.define('users', {
-    id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true, // es la clave primaria
-        autoIncrement: true // es autoincremental
-    },
     name: {
         type: DataTypes.STRING,
         allowNull: false // no se permite que sea nulo
