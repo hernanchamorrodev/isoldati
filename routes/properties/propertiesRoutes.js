@@ -16,8 +16,8 @@ const router = express.Router();
 router.get('/my-properties', protectRoute, myProperties)
 
 // Crear propiedades
-router.get('/properties/new', propertiesCreate)
-router.post('/properties/new',
+router.get('/properties/new', protectRoute, propertiesCreate)
+router.post('/properties/new', protectRoute,
     body('titulo').notEmpty().withMessage('Debes ingresar un título para tu anuncio'),
     body('descripcion').notEmpty().withMessage('Debes ingresar una descripción para tu anuncio')
     .isLength({ min: 20, max:500 }).withMessage('La descripción debe tener al menos 20 carácteres y no más de 500'),
