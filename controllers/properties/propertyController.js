@@ -8,7 +8,6 @@ const myProperties = (req, res) => {
     res.render(
         'properties/admin-panel', {
             title: 'Mis propiedades',
-            navigation: true,
         }
     )
 }
@@ -23,7 +22,6 @@ const propertiesCreate = async (req, res) => {
 
     res.render('properties/new-property', {
         title: 'Nueva propiedad',
-        navigation: true,
         csrfToken: req.csrfToken(),
         categorias,
         precios,
@@ -46,7 +44,6 @@ const propertiesSave = async (req, res) => {
 
         return res.render('properties/new-property', {
             title: 'Nueva propiedad',
-            navigation: true,
             categorias,
             precios,
             csrfToken: req.csrfToken(),
@@ -90,7 +87,6 @@ const propertiesSave = async (req, res) => {
 const addImagesProperty = async (req, res) => {
     res.render('properties/new-image', {
         title: 'Nueva imagen',
-        navigation: true,
         csrfToken: req.csrfToken(),
         //propertyId: req.params.id,
     })
