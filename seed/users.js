@@ -9,3 +9,5 @@ const users = [
         confirm: true
     },
 ]
+
+export default users

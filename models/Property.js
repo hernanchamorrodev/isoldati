@@ -6,8 +6,7 @@ const Property = db.define('properties', {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
-        primaryKey: true, // es la clave primaria
-        autoIncrement: true // es autoincremental
+        primaryKey: true
     },
     name: {
         type: DataTypes.STRING(100),
