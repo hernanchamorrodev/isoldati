@@ -59,9 +59,10 @@ const propertiesSave = async (req, res) => {
     const { category, price, title, description, address, city, province, country, rooms, bathrooms, parking, area, image } = req.body
 
     try {
-        await Property.create({
+        const newProperty = await Property.create({
             categoryId: category,
             priceId : price,
+            userId: req.user.id,
             title,
             description,
             address,
@@ -72,12 +73,13 @@ const propertiesSave = async (req, res) => {
             bathrooms,
             parking,
             area,
-            image,
-            userId: req.user.id
+            image: '',
         })
 
-        req.flash('success', 'Propiedad creada correctamente')
-        res.redirect('/administracion')
+        const { id } = newProperty
+
+        res.redirect(`/properties/new-image/${id}`)
+
     } catch (error) {
         console.log(error)
         req.flash('error', 'Hubo un error')
@@ -85,8 +87,18 @@ const propertiesSave = async (req, res) => {
     }
 }
 
+const addImagesProperty = async (req, res) => {
+    res.render('properties/new-image', {
+        title: 'Nueva imagen',
+        navigation: true,
+        csrfToken: req.csrfToken(),
+        //propertyId: req.params.id,
+    })
+}
+
 export {
     myProperties,
     propertiesCreate,
     propertiesSave,
+    addImagesProperty,
 }

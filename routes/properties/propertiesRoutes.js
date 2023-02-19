@@ -2,7 +2,7 @@ import express from 'express';
 
 import { body } from 'express-validator';
 
-import { myProperties, propertiesCreate, propertiesSave } from '../../controllers/properties/propertyController.js';
+import { myProperties, propertiesCreate, propertiesSave, addImagesProperty } from '../../controllers/properties/propertyController.js';
 
 import protectRoute from '../../middleware/protectRoute.js';
 
@@ -28,5 +28,7 @@ router.post('/properties/new', protectRoute,
     body('estacionamiento').isNumeric().withMessage('Debes ingresar la cantidad de estacionamientos de tu propiedad'),
     body('lat').notEmpty().withMessage('Debes ubicar tu propiedad en el mapa'),
     propertiesSave)
+
+router.get('/properties/new-image/:id', addImagesProperty)
 
 export default router;
