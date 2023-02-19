@@ -4,6 +4,7 @@ import { body } from 'express-validator';
 
 import { myProperties, propertiesCreate, propertiesSave } from '../../controllers/properties/propertyController.js';
 
+import protectRoute from '../../middleware/protectRoute.js';
 
 
 const router = express.Router();
@@ -12,7 +13,7 @@ const router = express.Router();
 // router.get('/properties', properties)
 
 // Mis propiedades
-router.get('/my-properties', myProperties)
+router.get('/my-properties', protectRoute, myProperties)
 
 // Crear propiedades
 router.get('/properties/new', propertiesCreate)

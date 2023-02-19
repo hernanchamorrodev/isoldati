@@ -2,7 +2,8 @@ import { exit } from 'node:process'
 
 import categories from './categories.js';
 import prices from './prices.js';
-import { Category, Price } from '../models/index.js';
+import users from './users.js';
+import { Category, Price, User } from '../models/index.js';
 
 import db from '../config/db.js';
 
@@ -14,7 +15,8 @@ const importar = async() => {
         await Promise.all(
             [
                 Category.bulkCreate(categories),
-                Price.bulkCreate(prices)
+                Price.bulkCreate(prices),
+                User.bulkCreate(users)
             ]
         )
 
