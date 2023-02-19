@@ -1,8 +1,10 @@
 const protectRoute = async(req, res, next) => {
     // verificar si hay token
-    const token = req.cookies._token;
+    const { _token } = req.cookies;
 
-    console.log(token)
+    if(!_token){
+        return res.redirect('/auth/login');
+    }
 }
 
 export default protectRoute;
