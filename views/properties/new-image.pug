@@ -1,7 +1,7 @@
 extends ../layouts/admin
 
 block styles
-    link(rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css")
+    link(href="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone.css" rel="stylesheet" type="text/css")
 
 block content
     .py-10
@@ -15,7 +15,8 @@ block content
                 p.bg-red-600.text-white.uppercase.text-xs.text-center.p-2.mb-1.font-bold=error.msg
 
     div(class="bg-white shadow py-8 px-4 rounded mx-auto max-w-2xl my-10 md:px-10")
-        form.space-y-8(method="POST" action="/properties/new")
+        form.space-y-8(class="dropzone border-dashed border-2 w-full min:h-96 h-auto rounded flex-col justify-center items-center" method="POST" action="/properties/new")
             input(type="hidden" name="_csrf" value=csrfToken)
                 input(class="w-full py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md my-5", type="submit", value="Publicar propiedad")
 block scripts
+    script(src="/js/newImage.js")
