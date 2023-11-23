@@ -2,6 +2,15 @@
 
 Aplicación web para la gestión de inmuebles de la inmobiliaria Soldati.
 
+# Preview
+
+Log In
+<img src="./readme_images/login.png" alt="login" width="400"/>
+
+Sign Up
+<img src="./readme_images//signup.png" alt="signup" width="400"/>
+
+
 # Stack
 - pug
 - node
@@ -21,5 +30,3 @@ Aplicación web para la gestión de inmuebles de la inmobiliaria Soldati.
 7. Ingresar a `localhost:3000` en el navegador
 8. Ingresar con el usuario `admin` y la contraseña `admin`
 9.  Listo!
-
-# Funcionalidades
