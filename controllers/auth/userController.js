@@ -20,8 +20,8 @@ const loginForm = (req, res) => {
 // LOGIN
 const autenticate = async (req, res) => {
     // validacion
-    await check('email').isEmail().withMessage('El email es obligatorio').run(req)
-    await check('password').notEmpty().withMessage('La contraseña es obligatoria').run(req)
+    await check('Email').isEmail().withMessage('El email es obligatorio').run(req)
+    await check('Password').notEmpty().withMessage('La contraseña es obligatoria').run(req)
 
     let result = validationResult(req)
 
@@ -33,10 +33,11 @@ const autenticate = async (req, res) => {
         })
     }
 
+    const email = req.body.Email;
+    const password = req.body.Password;
     // primero encontrar si el usuario existe
-    const {email, password} = req.body
     const user = await User.findOne({
-        email: email,
+        where: {email}
     })
 
     if(!user){
@@ -67,7 +68,7 @@ const autenticate = async (req, res) => {
 
     // autenticar usuario
     const token = generateJWT({id: user.id, name: user.name})
-
+    console.log(token)
     // almacenar en un cookie
     return res.cookie('_token', token, {
         httpOnly: true,

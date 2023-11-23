@@ -1,5 +1,8 @@
 import jwt from 'jsonwebtoken'
 // sin instalación de dependencias
+import dotenv from "dotenv";
+
+dotenv.config({ path: "./config/.env" });
 
 const generateJWT = data => {
     return jwt.sign({ id: data.id, name: data.name }, process.env.JWT_SECRET, { expiresIn: '1d' });

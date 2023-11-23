@@ -1,5 +1,8 @@
 import jwt from "jsonwebtoken";
 import { User } from "../models/index.js";
+import dotenv from "dotenv";
+
+dotenv.config({ path: "./config/.env" });
 
 const protectRoute = async(req, res, next) => {
     // verificar si hay token
