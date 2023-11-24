@@ -75,15 +75,14 @@ block content
                                     - n++;
                 div.border-gray-300.border-t-2.my-10.py-5.space-y-8
                     h3.text-lg.leading-6.font-medium.text-gray-900 Ubicación
-                    p.text-gray-600 Ubica la propiedad en el mapa
+                    p.text-gray-600.calle.w-full Ubica la propiedad en el mapa
+
                     #map(class="w-full h-96 my-10")
 
                     div 
-                        input(class="w-full calle")
-                        
-                    input(type="hidden", name="lat", id="lat")
-                    input(type="hidden", name="lng", id="lng")
-                    input(type="hidden", name="calle", id="calle")
+                        input(type="hidden", name="calle", id="calle")
+                        input(type="hidden", name="lat", id="lat")
+                        input(type="hidden", name="lng", id="lng")
 
                 input(class="w-full py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md my-5", type="submit", value="Guardar propiedad")
 block scripts
