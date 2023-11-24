@@ -1,53 +1,29 @@
-(
-    // ubicacion : Buenos aires
-    // zoom : 12
-    // tipo de mapa : satelite
-    // marcador : true
+(function(){
 
-    function(){
-        // Buenos Aires, Argentina
-        const latitud = documents.querySelector('#lat').value || -34.6036844;
-        const longitud = documents.querySelector('#lng').value || -58.3815591;
+        // utilizar provider y geocoder
+
+        const latitud = document.querySelector("#lat").value || -34.6141937;
+        const longitud = document.querySelector('#lng').value || -58.4593684;
         const mapa = L.map('map').setView([latitud, longitud], 12);
 
-        // Provider y geocoder
-        const geocodeService = L.esri.Geocoding.geocodeService();
-        
-
-        // Agregar el tile layer a openstreetmap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-            }).addTo(mapa);
+            attribution: 'Mapa CABA',
+            maxZoom: 18,
+        }).addTo(mapa);
 
-        let marker = L.marker([latitud, longitud], {
+        // PIN
+        const marker = new L.marker([latitud, longitud], {
             draggable: true,
-            title: "Ubicalo en el mapa",
-            alt: "El mapa de Buenos Aires",
-            riseOnHover: true,
-            autoPan: true,
-        })
+            autoPan: true
+        }).addTo(mapa);
 
-        marker.addTo(mapa);
-        // detectar movimiento del marcador
-        
-        marker.on('moveend', function(e){
+        // detectar lat long 
+        marker = addEventListener('moveend', (e) => {
             marker = e.target;
             const posicion = marker.getLatLng();
             mapa.panTo(new L.LatLng(posicion.lat, posicion.lng));
-
-            // Reverse Geocoding, cuando el usuario reubica el marcador
-            geocodeService.reverse().latlng(posicion, 16).run(function(error, resultado){
-                marker.bindPopup(resultado.address.LongLabel);
-                marker.openPopup();
-
-                document.querySelector('.calle').value = resultado?.address?.Address ?? '';
-                document.querySelector('.lat').value = resultado?.latlng?.lat ?? '';
-                document.querySelector('.lng').value = resultado?.latlng?.lng ?? '';
-
-            }
-            );
-
-
+            document.querySelector('#lat').value = posicion.lat;
+            document.querySelector('#lng').value = posicion.lng;
 
         });
     }

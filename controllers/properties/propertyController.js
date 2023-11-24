@@ -21,7 +21,7 @@ const propertiesCreate = async (req, res) => {
     ])
 
     res.render('properties/new-property', {
-        title: 'Nueva propiedad',
+        title: 'Crear propiedad',
         csrfToken: req.csrfToken(),
         categorias,
         precios,
@@ -53,7 +53,7 @@ const propertiesSave = async (req, res) => {
     }
 
     // almacenar en la base de datos
-    const { category, price, title, description, address, city, province, country, rooms, bathrooms, parking, area, image } = req.body
+    const { category, price, title, description, rooms, bathrooms, parking, street, image } = req.body
 
     try {
         const newProperty = await Property.create({
@@ -62,14 +62,15 @@ const propertiesSave = async (req, res) => {
             userId: req.user.id,
             title,
             description,
-            address,
-            city,
-            province,
-            country,
+            street,
+            // address,
+            // city,
+            // province,
+            // country,
             rooms,
             bathrooms,
             parking,
-            area,
+            // area,
             image: '',
         })
 

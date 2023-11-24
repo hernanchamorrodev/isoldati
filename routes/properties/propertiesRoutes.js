@@ -26,7 +26,7 @@ router.post('/properties/new', protectRoute,
     body('habitaciones').isNumeric().withMessage('Debes ingresar la cantidad de habitaciones de tu propiedad'),
     body('toilet').isNumeric().withMessage('Debes ingresar la cantidad de baños de tu propiedad'),
     body('estacionamiento').isNumeric().withMessage('Debes ingresar la cantidad de estacionamientos de tu propiedad'),
-    body('lat').notEmpty().withMessage('Debes ubicar tu propiedad en el mapa'),
+    // body('lat').notEmpty().withMessage('Debes ubicar tu propiedad en el mapa'),
     propertiesSave)
 
 router.get('/properties/new-image/:id', addImagesProperty)
