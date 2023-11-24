@@ -84,7 +84,7 @@ const propertiesSave = async (req, res) => {
 
 const addImagesProperty = async (req, res) => {
     res.render('properties/new-image', {
-        title: 'Agregar imagen',
+        title: 'Agregar imágenes',
         csrfToken: req.csrfToken(),
         //propertyId: req.params.id,
     })

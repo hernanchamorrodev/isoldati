@@ -10,8 +10,9 @@ block content
         h2.text-center.font-extrabold.text-2xl=title
         
     div(class="bg-white shadow py-8 px-4 rounded mx-auto max-w-2xl my-10 md:px-10")
-        form.space-y-8(class="dropzone border-dashed border-2 w-full min:h-96 h-auto rounded flex-col justify-center items-center" method="POST" action="/properties/new")
+        form.space-y-8(class="dropzone border-dashed border-2 w-full min:h-96 h-auto rounded flex-col justify-center py-5 items-center" method="POST" action="/properties/new" enctype="multipart/form-data")
             input(type="hidden" name="_csrf" value=csrfToken)
-            input(class="w-full py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md my-5", type="submit", value="Publicar propiedad")
+        
+        input(class="w-full py-3 bg-blue-500 uppercase hover:bg-blue-600 text-white rounded-md my-5", type="submit", value="Publicar propiedad")
 block scripts
     script(src="/js/newImage.js")
