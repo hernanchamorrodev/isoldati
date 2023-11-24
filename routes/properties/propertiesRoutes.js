@@ -10,7 +10,6 @@ import protectRoute from '../../middleware/protectRoute.js';
 const router = express.Router();
 
 // Propiedades
-// router.get('/properties', properties)
 
 // Mis propiedades
 router.get('/my-properties', protectRoute, myProperties)

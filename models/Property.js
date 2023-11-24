@@ -49,6 +49,7 @@ const Property = db.define('properties', {
         allowNull: false,
         defaultValue: false
     },
+    // no aparece en video, quitar.
     sold: {
         type: DataTypes.BOOLEAN,
         allowNull: false,

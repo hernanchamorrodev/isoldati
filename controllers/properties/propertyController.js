@@ -51,26 +51,23 @@ const propertiesSave = async (req, res) => {
             data: req.body
         })
     }
-
+    console.log(req.body)
     // almacenar en la base de datos
-    const { category, price, title, description, rooms, bathrooms, parking, street, image } = req.body
+    const { titulo, descripcion, categoria, precio, habitaciones, estacionamiento, toilet, calle, lat, lng } = req.body
 
     try {
         const newProperty = await Property.create({
-            categoryId: category,
-            priceId : price,
+            categoryId: categoria,
+            priceId : precio,
             userId: req.user.id,
-            title,
-            description,
-            street,
-            // address,
-            // city,
-            // province,
-            // country,
-            rooms,
-            bathrooms,
-            parking,
-            // area,
+            name: titulo,
+            description: descripcion,
+            street: calle,
+            bedrooms: habitaciones,
+            bathrooms: toilet,
+            parking: estacionamiento,
+            lat,
+            lng,
             image: '',
         })
 
@@ -80,7 +77,7 @@ const propertiesSave = async (req, res) => {
 
     } catch (error) {
         console.log(error)
-        req.flash('error', 'Hubo un error')
+        req.flash('error', 'Ocurrió un error')
         res.redirect('/my-properties')
     }
 }
